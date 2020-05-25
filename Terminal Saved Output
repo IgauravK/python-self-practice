@@ -1,0 +1,188 @@
+Last login: Thu May 21 17:02:38 on ttys002
+
+The default interactive shell is now zsh.
+To update your account to use zsh, please run `chsh -s /bin/zsh`.
+For more details, please visit https://support.apple.com/kb/HT208050.
+Gauravs-MacBook-Air:~ Gaurav$ pwd
+/Users/Baba
+Gauravs-MacBook-Air:~ Gaurav$ cd Downloads/
+Gauravs-MacBook-Air:Downloads Gaurav$ cd /Users/Baba
+Gauravs-MacBook-Air:~ Gaurav$ cd -
+/Users/Baba/Downloads
+Gauravs-MacBook-Air:Downloads Gaurav$ cd /Users/Baba/Python
+Gauravs-MacBook-Air:Python Gaurav$ /Users/Baba/Python/BookScrap
+-bash: /Users/Baba/Python/BookScrap: is a directory
+Gauravs-MacBook-Air:Python Gaurav$ cd /Users/Baba/Python/BookScrap
+Gauravs-MacBook-Air:BookScrap Gaurav$ /Users/Baba/Python]
+-bash: /Users/Baba/Python]: No such file or directory
+Gauravs-MacBook-Air:BookScrap Gaurav$ /Users/Baba/Python/BookScrap/
+-bash: /Users/Baba/Python/BookScrap/: is a directory
+Gauravs-MacBook-Air:BookScrap Gaurav$ BookScrap/
+-bash: BookScrap/: No such file or directory
+Gauravs-MacBook-Air:BookScrap Gaurav$ /Users/Baba/Python
+-bash: /Users/Baba/Python: is a directory
+Gauravs-MacBook-Air:BookScrap Gaurav$ cd /Users/Baba/Python
+Gauravs-MacBook-Air:Python Gaurav$ cd BookScrap/
+Gauravs-MacBook-Air:BookScrap Gaurav$ BookScrap is
+-bash: BookScrap: command not found
+Gauravs-MacBook-Air:BookScrap Gaurav$ BookScrap Is
+-bash: BookScrap: command not found
+Gauravs-MacBook-Air:BookScrap Gaurav$ BookScrao ls
+-bash: BookScrao: command not found
+Gauravs-MacBook-Air:BookScrap Gaurav$ /Users/Baba/Python
+-bash: /Users/Baba/Python: is a directory
+Gauravs-MacBook-Air:BookScrap Gaurav$ cd /Users/Baba/Python
+Gauravs-MacBook-Air:Python Gaurav$ cd BookScrap/
+Gauravs-MacBook-Air:BookScrap Gaurav$ ls
+Locators	Pages		__pycache__	app1.py		menu.py		pythoncheck.py
+Others		Parsers		app.py		logs.txt	menu1.py
+Gauravs-MacBook-Air:BookScrap Gaurav$ python3.8 menu.py
+Traceback (most recent call last):
+  File "menu.py", line 1, in <module>
+    from app import books
+  File "/Users/Baba/Python/BookScrap/app.py", line 4, in <module>
+    from Pages.bookspage import BookPage
+  File "/Users/Baba/Python/BookScrap/Pages/bookspage.py", line 3, in <module>
+    from bs4 import BeautifulSoup
+ModuleNotFoundError: No module named 'bs4'
+Gauravs-MacBook-Air:BookScrap Gaurav$ virtualenv venv --python=python3.8
+created virtual environment CPython3.8.2.final.0-64 in 450ms
+  creator CPython3Posix(dest=/Users/Baba/Python/BookScrap/venv, clear=False, global=False)
+  seeder FromAppData(download=False, pip=latest, setuptools=latest, wheel=latest, via=copy, app_data_dir=/Users/Baba/Library/Application Support/virtualenv/seed-app-data/v1.0.1)
+  activators BashActivator,CShellActivator,FishActivator,PowerShellActivator,PythonActivator,XonshActivator
+Gauravs-MacBook-Air:BookScrap Gaurav$ pip3.8 install bs4
+Collecting bs4
+  Downloading https://files.pythonhosted.org/packages/10/ed/7e8b97591f6f456174139ec089c769f89a94a1a4025fe967691de971f314/bs4-0.0.1.tar.gz
+Collecting beautifulsoup4 (from bs4)
+  Using cached https://files.pythonhosted.org/packages/66/25/ff030e2437265616a1e9b25ccc864e0371a0bc3adb7c5a404fd661c6f4f6/beautifulsoup4-4.9.1-py3-none-any.whl
+Collecting soupsieve>1.2 (from beautifulsoup4->bs4)
+  Using cached https://files.pythonhosted.org/packages/6f/8f/457f4a5390eeae1cc3aeab89deb7724c965be841ffca6cfca9197482e470/soupsieve-2.0.1-py3-none-any.whl
+Installing collected packages: soupsieve, beautifulsoup4, bs4
+  Running setup.py install for bs4 ... done
+Successfully installed beautifulsoup4-4.9.1 bs4-0.0.1 soupsieve-2.0.1
+WARNING: You are using pip version 19.2.3, however version 20.1.1 is available.
+You should consider upgrading via the 'pip install --upgrade pip' command.
+Gauravs-MacBook-Air:BookScrap Gaurav$ ls
+Locators	Pages		__pycache__	app1.py		menu.py		pythoncheck.py
+Others		Parsers		app.py		logs.txt	menu1.py	venv
+Gauravs-MacBook-Air:BookScrap Gaurav$ source venv/bin/activate
+(venv) Gauravs-MacBook-Air:BookScrap Gaurav$ python menu.py
+Traceback (most recent call last):
+  File "menu.py", line 1, in <module>
+    from app import books
+  File "/Users/Baba/Python/BookScrap/app.py", line 1, in <module>
+    import requests
+ModuleNotFoundError: No module named 'requests'
+(venv) Gauravs-MacBook-Air:BookScrap Gaurav$ pip install requests
+Collecting requests
+  Using cached requests-2.23.0-py2.py3-none-any.whl (58 kB)
+Collecting certifi>=2017.4.17
+  Using cached certifi-2020.4.5.1-py2.py3-none-any.whl (157 kB)
+Collecting chardet<4,>=3.0.2
+  Using cached chardet-3.0.4-py2.py3-none-any.whl (133 kB)
+Collecting idna<3,>=2.5
+  Using cached idna-2.9-py2.py3-none-any.whl (58 kB)
+Collecting urllib3!=1.25.0,!=1.25.1,<1.26,>=1.21.1
+  Using cached urllib3-1.25.9-py2.py3-none-any.whl (126 kB)
+Installing collected packages: certifi, chardet, idna, urllib3, requests
+Successfully installed certifi-2020.4.5.1 chardet-3.0.4 idna-2.9 requests-2.23.0 urllib3-1.25.9
+(venv) Gauravs-MacBook-Air:BookScrap Gaurav$ python menu.py
+Traceback (most recent call last):
+  File "menu.py", line 1, in <module>
+    from app import books
+  File "/Users/Baba/Python/BookScrap/app.py", line 4, in <module>
+    from Pages.bookspage import BookPage
+  File "/Users/Baba/Python/BookScrap/Pages/bookspage.py", line 3, in <module>
+    from bs4 import BeautifulSoup
+ModuleNotFoundError: No module named 'bs4'
+(venv) Gauravs-MacBook-Air:BookScrap Gaurav$ pip install bs4
+Collecting bs4
+  Using cached bs4-0.0.1.tar.gz (1.1 kB)
+Collecting beautifulsoup4
+  Using cached beautifulsoup4-4.9.1-py3-none-any.whl (115 kB)
+Collecting soupsieve>1.2
+  Using cached soupsieve-2.0.1-py3-none-any.whl (32 kB)
+Building wheels for collected packages: bs4
+  Building wheel for bs4 (setup.py) ... done
+  Created wheel for bs4: filename=bs4-0.0.1-py3-none-any.whl size=1272 sha256=2be76716592236930fc29bda5f27e4215e73f665517169088873be5eecd341d0
+  Stored in directory: /Users/Baba/Library/Caches/pip/wheels/75/78/21/68b124549c9bdc94f822c02fb9aa3578a669843f9767776bca
+Successfully built bs4
+Installing collected packages: soupsieve, beautifulsoup4, bs4
+Successfully installed beautifulsoup4-4.9.1 bs4-0.0.1 soupsieve-2.0.1
+(venv) Gauravs-MacBook-Air:BookScrap Gaurav$ python menu.py
+<Book An Abundance of Katherines 10.0, (5 stars)>
+<Book The Origin of Species 10.01, (4 stars)>
+<Book The Tipping Point: How Little Things Can Make a Big Difference 10.02, (2 stars)>
+<Book Patience 10.16, (3 stars)>
+<Book Greek Mythic History 10.23, (5 stars)>
+<Book The Fellowship of the Ring (The Lord of the Rings #1) 10.27, (2 stars)>
+<Book History of Beauty 10.29, (4 stars)>
+<Book The Lucifer Effect: Understanding How Good People Turn Evil 10.4, (1 stars)>
+<Book NaNo What Now? Finding your editing process, revising your NaNoWriMo book and building a writing career through publishing and beyond 10.41, (4 stars)>
+<Book Pet Sematary 10.56, (3 stars)>
+<Book An Abundance of Katherines 10.0, (5 stars)>
+<Book Greek Mythic History 10.23, (5 stars)>
+<Book The Power Greens Cookbook: 140 Delicious Superfood Recipes 11.05, (5 stars)>
+<Book Dear Mr. Knightley 11.21, (5 stars)>
+<Book The Darkest Corners 11.33, (5 stars)>
+<Book Naturally Lean: 125 Nourishing Gluten-Free, Plant-Based Recipes--All Under 300 Calories 11.38, (5 stars)>
+<Book Fruits Basket, Vol. 2 (Fruits Basket #2) 11.64, (5 stars)>
+<Book Old School (Diary of a Wimpy Kid #10) 11.83, (5 stars)>
+<Book Superman Vol. 1: Before Truth (Superman by Gene Luen Yang #1) 11.89, (5 stars)>
+<Book Every Heart a Doorway (Every Heart A Doorway #1) 12.16, (5 stars)>
+<Book Sapiens: A Brief History of Humankind 54.23, (5 stars)>
+<Book Set Me Free 17.46, (5 stars)>
+<Book Scott Pilgrim's Precious Little Life (Scott Pilgrim #1) 52.29, (5 stars)>
+<Book Rip it Up and Start Again 35.02, (5 stars)>
+<Book Chase Me (Paris Nights #2) 25.27, (5 stars)>
+<Book Black Dust 34.53, (5 stars)>
+<Book Worlds Elsewhere: Journeys Around Shakespeare’s Globe 40.3, (5 stars)>
+<Book The Four Agreements: A Practical Guide to Personal Freedom 17.66, (5 stars)>
+<Book The Elephant Tree 23.82, (5 stars)>
+<Book Sophie's World 15.94, (5 stars)>
+(venv) Gauravs-MacBook-Air:BookScrap Gaurav$ freeze
+-bash: freeze: command not found
+(venv) Gauravs-MacBook-Air:BookScrap Gaurav$ pip freeze
+beautifulsoup4==4.9.1
+bs4==0.0.1
+certifi==2020.4.5.1
+chardet==3.0.4
+idna==2.9
+requests==2.23.0
+soupsieve==2.0.1
+urllib3==1.25.9
+(venv) Gauravs-MacBook-Air:BookScrap Gaurav$ pip freeze > requirments.txt
+(venv) Gauravs-MacBook-Air:BookScrap Gaurav$ cat requirments.txt
+beautifulsoup4==4.9.1
+bs4==0.0.1
+certifi==2020.4.5.1
+chardet==3.0.4
+idna==2.9
+requests==2.23.0
+soupsieve==2.0.1
+urllib3==1.25.9
+(venv) Gauravs-MacBook-Air:BookScrap Gaurav$ pip install aiohttp==3.0.5
+Collecting aiohttp==3.0.5
+  Downloading aiohttp-3.0.5.tar.gz (738 kB)
+     |████████████████████████████████| 738 kB 568 kB/s 
+  Installing build dependencies ... done
+  Getting requirements to build wheel ... done
+    Preparing wheel metadata ... done
+Collecting attrs>=17.3.0
+  Using cached attrs-19.3.0-py2.py3-none-any.whl (39 kB)
+Collecting multidict<5.0,>=4.0
+  Using cached multidict-4.7.6-cp38-cp38-macosx_10_14_x86_64.whl (48 kB)
+Requirement already satisfied: chardet<4.0,>=2.0 in ./venv/lib/python3.8/site-packages (from aiohttp==3.0.5) (3.0.4)
+Collecting yarl<2.0,>=1.0
+  Using cached yarl-1.4.2-cp38-cp38-macosx_10_13_x86_64.whl (126 kB)
+Collecting async-timeout<3.0,>=1.2
+  Downloading async_timeout-2.0.1-py3-none-any.whl (5.9 kB)
+Requirement already satisfied: idna>=2.0 in ./venv/lib/python3.8/site-packages (from yarl<2.0,>=1.0->aiohttp==3.0.5) (2.9)
+Building wheels for collected packages: aiohttp
+  Building wheel for aiohttp (PEP 517) ... done
+  Created wheel for aiohttp: filename=aiohttp-3.0.5-cp38-cp38-macosx_10_9_x86_64.whl size=371065 sha256=2308a46729c65333ee1f135cab3c6d66da15026ed2435943ca89601045aa8d22
+  Stored in directory: /Users/Baba/Library/Caches/pip/wheels/dc/49/a3/027ddac81fdb0856d8cf89e5408e939d6a7c81608bc5b7e4b1
+Successfully built aiohttp
+Installing collected packages: attrs, multidict, yarl, async-timeout, aiohttp
+Successfully installed aiohttp-3.0.5 async-timeout-2.0.1 attrs-19.3.0 multidict-4.7.6 yarl-1.4.2
+(venv) Gauravs-MacBook-Air:BookScrap Gaurav$ 

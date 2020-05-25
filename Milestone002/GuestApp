@@ -1,0 +1,57 @@
+options_prompt = "Enter A to add Guest, V to view all guests, F to find guest by Name and Q to quit the app: "
+
+guests = [{'name':'Test','country':'Test','check_in_date':'Test', 'check_out_date': 'Test'}]
+
+def add_guest():
+    name = input("Enter guest name: ")
+    country = input ("Enter country name: ")
+    check_in_date = input ("Enter check-in date: ")
+    check_out_date = input ("enter check-out date: ")
+
+    guests.append ({
+        'name' : name,
+        'country' : country,
+        'check_in_date' : check_in_date,
+        'check_out_date' : check_out_date
+    })
+
+
+def view_guest():
+    for G in guests:
+        print_guest(G)
+
+
+def print_guest(guests):
+        print(f"Name: {guests['name']}")
+        print(f"Country: {guests['country']}")
+        print(f"Check In Date: {guests['check_in_date']}")
+        print(f"Check Out Date: {guests['check_out_date']}")
+
+
+def find_guest():
+    search_guest = input("Guest Name: ")
+
+    for G in guests:
+        if G['name'] == search_guest:
+            print_guest(G)
+
+user_options = {
+    "A" : add_guest,
+    "V" : view_guest,
+    "F" : find_guest
+    }
+
+
+def app():
+    selection = input(options_prompt)
+    while selection != "Q":
+        if selection in user_options:
+            selected_function = user_options[selection]
+            selected_function()
+        else:
+            print('Unknown command. Please try again.')
+
+        selection = input(options_prompt)
+
+
+app()

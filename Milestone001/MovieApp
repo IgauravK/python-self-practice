@@ -1,0 +1,54 @@
+MENU_PROMPT = "Enter 'A' to add a movie, 'F' to find a movie by title, 'V' to view a movie and 'Q' to quit the application: "
+
+Movies = [{'Title': 'Gamak Ghar', 'Director': 'Achal Mishra', 'Year': '2019', 'Platform': 'Mubi'}]
+
+def add_movie():
+    Title = input("Enter the movie title: ")
+    Director = input("Enter the movie director: ")
+    Year = input("Enter the movie release year: ")
+    Platform = input("Enter the streaming platform name: ")
+
+    Movies.append({
+        'Title': Title,
+        'Director': Director,
+        'Year': Year,
+        'Platform' : Platform
+    })
+
+def show_movies():
+    for movie in Movies:
+        print_movie(movie)
+
+
+def print_movie(movie):
+    print(f"Title: {movie['Title']}")
+    print(f"Director: {movie['Director']}")
+    print(f"Release year: {movie['Year']}")
+    print(f"Platform: {movie['Platform']}")
+
+def find_movie():
+    search_title = input("Enter movie title you're looking for: ")
+
+    for movie in Movies:
+        if movie["Title"] == search_title:
+            print_movie(movie)
+
+user_options = {
+        "A": add_movie,
+        "V": show_movies,
+        "F": find_movie
+    }
+
+def menu():
+    selection = input(MENU_PROMPT)
+    while selection != 'Q':
+        if selection in user_options:
+            selected_function = user_options[selection]
+            selected_function()
+        else:
+            print('Unknown command. Please try again.')
+
+        selection = input(MENU_PROMPT)
+
+
+menu()
